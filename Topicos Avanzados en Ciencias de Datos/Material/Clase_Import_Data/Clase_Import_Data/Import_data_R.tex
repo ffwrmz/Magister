@@ -1,0 +1,840 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Import\_data\_R.ipynb},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Import\_data\_R.ipynb}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{working-directories}{%
+\section{1. Working directories}\label{working-directories}}
+
+The working directory is the default location where R will look for
+files you want to load and where it will put any files you save.
+
+You can also use the \texttt{getwd()} function in the Console which
+returns the file path of the current working directory.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{getwd}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "/Users/danielbustos/Library/CloudStorage/Dropbox/DataScience_IA/R/Import_Data"
+\end{verbatim}
+
+If you wanna set a directory
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#setwd(\textquotesingle{}/Users/danielbustos/Library/CloudStorage/Dropbox/UCM/Doctorado\_Ingenieria/Clases/R/Import\_Data\textquotesingle{})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{getwd}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "/Users/danielbustos/Library/CloudStorage/Dropbox/DataScience_IA/R/Import_Data"
+\end{verbatim}
+
+If you wanna list the files located into the directory
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{list.files}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Canserbero_lyrics.txt"     "hotel_bookings_clean.csv" 
+## [3] "hotel_bookings_clean.xlsx" "Import_data_R.ipynb"      
+## [5] "Import_data_R.Rmd"         "IRIS.xlsx"
+\end{verbatim}
+
+\hypertarget{importing-data-in-r}{%
+\section{2. Importing data in R}\label{importing-data-in-r}}
+
+Loading data into R can be quite frustrating. Almost every single type
+of file that you want to get into R seems to require its function, and
+even then, you might get lost in the functions' arguments. In short, it
+can be fairly easy to mix up things from time to time, whether you are a
+beginner or a more advanced R user.
+
+\hypertarget{importing-data-to-r-from-a-csv-files}{%
+\subsection{2.1. Importing data to R from a CSV
+files}\label{importing-data-to-r-from-a-csv-files}}
+
+\hypertarget{readr-function}{%
+\subsubsection{2.1.1 readr() function}\label{readr-function}}
+
+In this section, we will read data in r by loading a CSV file from Hotel
+Booking Demand. This dataset consists of booking data from a city hotel
+and a resort hotel. To import the CSV file, we will use the readr
+package's \texttt{read\_csv} function.
+
+readr supports the following file formats with these read\_*()
+functions:
+
+read\_csv(): comma-separated values (CSV)
+
+read\_tsv(): tab-separated values (TSV)
+
+read\_csv2(): semicolon-separated values with , as the decimal mark
+
+read\_delim(): delimited files (CSV and TSV are important special cases)
+
+read\_fwf(): fixed-width files
+
+read\_table(): whitespace-separated files
+
+read\_log(): web log files
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+
+\NormalTok{data1 }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{\textquotesingle{}hotel\_bookings\_clean.csv\textquotesingle{}}\NormalTok{, }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(data1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 53
+##   is_canceled lead_time arrival_date_week_number arrival_date_day_of_month
+##         <dbl>     <dbl>                    <dbl>                     <dbl>
+## 1           0       342                       27                         1
+## 2           0       737                       27                         1
+## 3           0         7                       27                         1
+## 4           0        13                       27                         1
+## 5           0        14                       27                         1
+## 6           0        14                       27                         1
+## # i 49 more variables: arrival_date_month <dbl>, stays_in_weekend_nights <dbl>,
+## #   stays_in_week_nights <dbl>, adults <dbl>, children <dbl>, babies <dbl>,
+## #   is_repeated_guest <dbl>, previous_cancellations <dbl>,
+## #   previous_bookings_not_canceled <dbl>, required_car_parking_spaces <dbl>,
+## #   total_of_special_requests <dbl>, avg_daily_rate <dbl>,
+## #   booked_by_company <dbl>, booked_by_agent <dbl>, hotel_City <dbl>,
+## #   hotel_Resort <dbl>, meal_BB <dbl>, meal_FB <dbl>, meal_HB <dbl>, ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?}\FunctionTok{read\_csv}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{read\_csv()} and \texttt{read\_tsv()} are special cases of the
+more general \texttt{read\_delim()}. They're useful for reading the most
+common types of flat file data, comma separated values and tab separated
+values, respectively. \texttt{read\_csv2()} uses ⁠;⁠ for the field
+separator and ⁠,⁠ for the decimal point.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+
+\NormalTok{data\_tab }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}\StringTok{\textquotesingle{}hotel\_bookings\_clean.csv\textquotesingle{}}\NormalTok{, }\AttributeTok{delim =} \StringTok{\textquotesingle{},\textquotesingle{}}\NormalTok{, }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{)}
+
+\NormalTok{data\_tab}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 119,210 x 53
+##    is_canceled lead_time arrival_date_week_number arrival_date_day_of_month
+##          <dbl>     <dbl>                    <dbl>                     <dbl>
+##  1           0       342                       27                         1
+##  2           0       737                       27                         1
+##  3           0         7                       27                         1
+##  4           0        13                       27                         1
+##  5           0        14                       27                         1
+##  6           0        14                       27                         1
+##  7           0         0                       27                         1
+##  8           0         9                       27                         1
+##  9           1        85                       27                         1
+## 10           1        75                       27                         1
+## # i 119,200 more rows
+## # i 49 more variables: arrival_date_month <dbl>, stays_in_weekend_nights <dbl>,
+## #   stays_in_week_nights <dbl>, adults <dbl>, children <dbl>, babies <dbl>,
+## #   is_repeated_guest <dbl>, previous_cancellations <dbl>,
+## #   previous_bookings_not_canceled <dbl>, required_car_parking_spaces <dbl>,
+## #   total_of_special_requests <dbl>, avg_daily_rate <dbl>,
+## #   booked_by_company <dbl>, booked_by_agent <dbl>, hotel_City <dbl>, ...
+\end{verbatim}
+
+\hypertarget{read.table-function}{%
+\subsubsection{2.1.2. read.table() function}\label{read.table-function}}
+
+Similar to \texttt{read\_csv} you can also use the \texttt{read.table}
+function to load the file. Make sure you are adding delimiter ``,'' and
+header = 1. It will set the first row as column names instead of ``V1'',
+``V2'',\ldots{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data2 }\OtherTok{\textless{}{-}} \FunctionTok{read.table}\NormalTok{(}\StringTok{\textquotesingle{}hotel\_bookings\_clean.csv\textquotesingle{}}\NormalTok{, }\AttributeTok{sep=}\StringTok{","}\NormalTok{, }\AttributeTok{header =} \DecValTok{1}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(data2, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   is_canceled lead_time arrival_date_week_number arrival_date_day_of_month
+## 1           0       342                       27                         1
+## 2           0       737                       27                         1
+## 3           0         7                       27                         1
+## 4           0        13                       27                         1
+## 5           0        14                       27                         1
+##   arrival_date_month stays_in_weekend_nights stays_in_week_nights adults
+## 1                  7                       0                    0      2
+## 2                  7                       0                    0      2
+## 3                  7                       0                    1      1
+## 4                  7                       0                    1      1
+## 5                  7                       0                    2      2
+##   children babies is_repeated_guest previous_cancellations
+## 1        0      0                 0                      0
+## 2        0      0                 0                      0
+## 3        0      0                 0                      0
+## 4        0      0                 0                      0
+## 5        0      0                 0                      0
+##   previous_bookings_not_canceled required_car_parking_spaces
+## 1                              0                           0
+## 2                              0                           0
+## 3                              0                           0
+## 4                              0                           0
+## 5                              0                           0
+##   total_of_special_requests avg_daily_rate booked_by_company booked_by_agent
+## 1                         0              0                 0               0
+## 2                         0              0                 0               0
+## 3                         0             75                 0               0
+## 4                         0             75                 0               1
+## 5                         1             98                 0               1
+##   hotel_City hotel_Resort meal_BB meal_FB meal_HB meal_No_meal
+## 1          0            1       1       0       0            0
+## 2          0            1       1       0       0            0
+## 3          0            1       1       0       0            0
+## 4          0            1       1       0       0            0
+## 5          0            1       1       0       0            0
+##   market_segment_Aviation market_segment_Complementary market_segment_Corporate
+## 1                       0                            0                        0
+## 2                       0                            0                        0
+## 3                       0                            0                        0
+## 4                       0                            0                        1
+## 5                       0                            0                        0
+##   market_segment_Direct market_segment_Groups market_segment_Offline_TA_TO
+## 1                     1                     0                            0
+## 2                     1                     0                            0
+## 3                     1                     0                            0
+## 4                     0                     0                            0
+## 5                     0                     0                            0
+##   market_segment_Online_TA market_segment_Undefined
+## 1                        0                        0
+## 2                        0                        0
+## 3                        0                        0
+## 4                        0                        0
+## 5                        1                        0
+##   distribution_channel_Corporate distribution_channel_Direct
+## 1                              0                           1
+## 2                              0                           1
+## 3                              0                           1
+## 4                              1                           0
+## 5                              0                           0
+##   distribution_channel_GDS distribution_channel_TA_TO
+## 1                        0                          0
+## 2                        0                          0
+## 3                        0                          0
+## 4                        0                          0
+## 5                        0                          1
+##   distribution_channel_Undefined reserved_room_type_A reserved_room_type_B
+## 1                              0                    0                    0
+## 2                              0                    0                    0
+## 3                              0                    1                    0
+## 4                              0                    1                    0
+## 5                              0                    1                    0
+##   reserved_room_type_C reserved_room_type_D reserved_room_type_E
+## 1                    1                    0                    0
+## 2                    1                    0                    0
+## 3                    0                    0                    0
+## 4                    0                    0                    0
+## 5                    0                    0                    0
+##   reserved_room_type_F reserved_room_type_G reserved_room_type_H
+## 1                    0                    0                    0
+## 2                    0                    0                    0
+## 3                    0                    0                    0
+## 4                    0                    0                    0
+## 5                    0                    0                    0
+##   reserved_room_type_L deposit_type_No_Deposit deposit_type_Non_Refund
+## 1                    0                       1                       0
+## 2                    0                       1                       0
+## 3                    0                       1                       0
+## 4                    0                       1                       0
+## 5                    0                       1                       0
+##   deposit_type_Refundable customer_type_Contract customer_type_Group
+## 1                       0                      0                   0
+## 2                       0                      0                   0
+## 3                       0                      0                   0
+## 4                       0                      0                   0
+## 5                       0                      0                   0
+##   customer_type_Transient customer_type_Transient.Party
+## 1                       1                             0
+## 2                       1                             0
+## 3                       1                             0
+## 4                       1                             0
+## 5                       1                             0
+\end{verbatim}
+
+\hypertarget{comparing-the-timing-of-these-functions}{%
+\subsubsection{2.1.3. Comparing the timing of these
+functions}\label{comparing-the-timing-of-these-functions}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{timing\_result }\OtherTok{\textless{}{-}} \FunctionTok{system.time}\NormalTok{(\{}
+\NormalTok{    data1 }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{\textquotesingle{}hotel\_bookings\_clean.csv\textquotesingle{}}\NormalTok{, }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{\})}
+
+\CommentTok{\# Print the result and timing information}
+\FunctionTok{print}\NormalTok{(timing\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    user  system elapsed 
+##   0.728   0.035   0.141
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{timing\_result }\OtherTok{\textless{}{-}} \FunctionTok{system.time}\NormalTok{(\{}
+\NormalTok{    data\_tab }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}\StringTok{\textquotesingle{}hotel\_bookings\_clean.csv\textquotesingle{}}\NormalTok{, }\AttributeTok{delim =} \StringTok{\textquotesingle{},\textquotesingle{}}\NormalTok{, }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{\})}
+
+\CommentTok{\# Print the result and timing information}
+\FunctionTok{print}\NormalTok{(timing\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    user  system elapsed 
+##   0.675   0.031   0.130
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{timing\_result }\OtherTok{\textless{}{-}} \FunctionTok{system.time}\NormalTok{(\{}
+\NormalTok{    data2 }\OtherTok{\textless{}{-}} \FunctionTok{read.table}\NormalTok{(}\StringTok{\textquotesingle{}hotel\_bookings\_clean.csv\textquotesingle{}}\NormalTok{, }\AttributeTok{sep=}\StringTok{","}\NormalTok{, }\AttributeTok{header =} \DecValTok{1}\NormalTok{)}
+\NormalTok{\})}
+
+\CommentTok{\# Print the result and timing information}
+\FunctionTok{print}\NormalTok{(timing\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    user  system elapsed 
+##   0.548   0.013   0.562
+\end{verbatim}
+
+\hypertarget{importing-a-txt-file-in-r}{%
+\subsection{2.2. Importing a TXT file in
+R}\label{importing-a-txt-file-in-r}}
+
+In this part, we will use the Canserbero Lyrics dataset to load a text
+file. The file consists of Lyrics from the rapper Canserbero. We can use
+the \texttt{readLines} function to load the simple file, but we have to
+perform additional tasks to convert it into a dataframe.
+
+We will use read.table's alternative function, \texttt{read.delim} to
+load the text file as an R dataframe. Other read.table's alternative
+functions are read.csv, read.csv2, and read.delim2.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data3 }\OtherTok{\textless{}{-}} \FunctionTok{read.delim}\NormalTok{(}\StringTok{\textquotesingle{}Canserbero\_lyrics.txt\textquotesingle{}}\NormalTok{,}\AttributeTok{header =}\NormalTok{ F)}
+\FunctionTok{head}\NormalTok{(data3, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                            V1
+## 1          Como el segundo que ya transcurrió
+## 2      Como en el que oíste mi frase anterior
+## 3 Y ahora mi frase anterior es frase anterior
+## 4                Y ahora, ambas son recuerdos
+## 5       Podrás actuar igual un minuto después
+\end{verbatim}
+
+\hypertarget{importing-data-from-excel-into-r}{%
+\subsection{2.3. Importing data from Excel into
+R}\label{importing-data-from-excel-into-r}}
+
+We will use the readxl package's \texttt{read\_excel} function to read a
+single sheet from an Excel file. The package comes with tiddyvers, but
+it is not the core part of it, so we need to load the package before
+using the function.
+
+The function requires the location of the data and sheet number. We can
+also modify how our dataframe looks by reading the description of other
+parameters in read\_excel documentation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{data4 }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"hotel\_bookings\_clean.xlsx"}\NormalTok{, }\AttributeTok{sheet =} \StringTok{"Sheet1"}\NormalTok{, }\AttributeTok{col\_names =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(data4, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 53
+##   is_canceled lead_time arrival_date_week_number arrival_date_day_of_month
+##         <dbl>     <dbl>                    <dbl>                     <dbl>
+## 1           0       342                       27                         1
+## 2           0       737                       27                         1
+## 3           0         7                       27                         1
+## 4           0        13                       27                         1
+## 5           0        14                       27                         1
+## # i 49 more variables: arrival_date_month <dbl>, stays_in_weekend_nights <dbl>,
+## #   stays_in_week_nights <dbl>, adults <dbl>, children <chr>, babies <dbl>,
+## #   is_repeated_guest <dbl>, previous_cancellations <dbl>,
+## #   previous_bookings_not_canceled <dbl>, required_car_parking_spaces <dbl>,
+## #   total_of_special_requests <dbl>, avg_daily_rate <chr>,
+## #   booked_by_company <dbl>, booked_by_agent <dbl>, hotel_City <dbl>,
+## #   hotel_Resort <dbl>, meal_BB <dbl>, meal_FB <dbl>, meal_HB <dbl>, ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?}\FunctionTok{read\_excel}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{importing-some-columns-from-excel}{%
+\subsection{2.4. Importing some columns from
+excel}\label{importing-some-columns-from-excel}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{data4 }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"hotel\_bookings\_clean.xlsx"}\NormalTok{, }\AttributeTok{sheet =} \StringTok{"Sheet1"}\NormalTok{, }\AttributeTok{col\_names =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{range =} \FunctionTok{cell\_cols}\NormalTok{(}\StringTok{"A:D"}\NormalTok{))}
+\FunctionTok{head}\NormalTok{(data4, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 4
+##   is_canceled lead_time arrival_date_week_number arrival_date_day_of_month
+##         <dbl>     <dbl>                    <dbl>                     <dbl>
+## 1           0       342                       27                         1
+## 2           0       737                       27                         1
+## 3           0         7                       27                         1
+## 4           0        13                       27                         1
+## 5           0        14                       27                         1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(openxlsx)}
+
+\NormalTok{data4 }\OtherTok{\textless{}{-}} \FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"hotel\_bookings\_clean.xlsx"}\NormalTok{, }\AttributeTok{cols =} \DecValTok{10}\SpecialCharTok{:}\DecValTok{20}\NormalTok{)}
+
+\FunctionTok{head}\NormalTok{(data4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   babies is_repeated_guest previous_cancellations
+## 1      0                 0                      0
+## 2      0                 0                      0
+## 3      0                 0                      0
+## 4      0                 0                      0
+## 5      0                 0                      0
+## 6      0                 0                      0
+##   previous_bookings_not_canceled required_car_parking_spaces
+## 1                              0                           0
+## 2                              0                           0
+## 3                              0                           0
+## 4                              0                           0
+## 5                              0                           0
+## 6                              0                           0
+##   total_of_special_requests avg_daily_rate booked_by_company booked_by_agent
+## 1                         0            0.0                 0               0
+## 2                         0            0.0                 0               0
+## 3                         0           75.0                 0               0
+## 4                         0           75.0                 0               1
+## 5                         1           98.0                 0               1
+## 6                         1           98.0                 0               1
+##   hotel_City hotel_Resort
+## 1          0            1
+## 2          0            1
+## 3          0            1
+## 4          0            1
+## 5          0            1
+## 6          0            1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{data4 }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"hotel\_bookings\_clean.xlsx"}\NormalTok{, }\AttributeTok{sheet =} \StringTok{"Sheet1"}\NormalTok{, }\AttributeTok{col\_names =} \ConstantTok{TRUE}\NormalTok{)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{7}\NormalTok{]}
+\FunctionTok{head}\NormalTok{(data4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 7
+##   is_canceled lead_time arrival_date_week_number arrival_date_day_of_month
+##         <dbl>     <dbl>                    <dbl>                     <dbl>
+## 1           0       342                       27                         1
+## 2           0       737                       27                         1
+## 3           0         7                       27                         1
+## 4           0        13                       27                         1
+## 5           0        14                       27                         1
+## 6           0        14                       27                         1
+## # i 3 more variables: arrival_date_month <dbl>, stays_in_weekend_nights <dbl>,
+## #   stays_in_week_nights <dbl>
+\end{verbatim}
+
+\hypertarget{importing-some-rows-from-excel}{%
+\subsection{2.5. Importing some rows from
+excel}\label{importing-some-rows-from-excel}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+
+\NormalTok{data4 }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"hotel\_bookings\_clean.xlsx"}\NormalTok{, }\AttributeTok{sheet =} \StringTok{"Sheet1"}\NormalTok{, }\AttributeTok{col\_names =} \ConstantTok{TRUE}\NormalTok{)}
+
+\FunctionTok{dim}\NormalTok{(data4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 119210     53
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data\_slice }\OtherTok{\textless{}{-}}\NormalTok{ data4[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{100}\NormalTok{, ]}
+
+\FunctionTok{dim}\NormalTok{(data\_slice)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 100  53
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(data\_slice)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 53
+##   is_canceled lead_time arrival_date_week_number arrival_date_day_of_month
+##         <dbl>     <dbl>                    <dbl>                     <dbl>
+## 1           0       342                       27                         1
+## 2           0       737                       27                         1
+## 3           0         7                       27                         1
+## 4           0        13                       27                         1
+## 5           0        14                       27                         1
+## 6           0        14                       27                         1
+## # i 49 more variables: arrival_date_month <dbl>, stays_in_weekend_nights <dbl>,
+## #   stays_in_week_nights <dbl>, adults <dbl>, children <chr>, babies <dbl>,
+## #   is_repeated_guest <dbl>, previous_cancellations <dbl>,
+## #   previous_bookings_not_canceled <dbl>, required_car_parking_spaces <dbl>,
+## #   total_of_special_requests <dbl>, avg_daily_rate <chr>,
+## #   booked_by_company <dbl>, booked_by_agent <dbl>, hotel_City <dbl>,
+## #   hotel_Resort <dbl>, meal_BB <dbl>, meal_FB <dbl>, meal_HB <dbl>, ...
+\end{verbatim}
+
+\hypertarget{save-data-to-excel}{%
+\section{2.4 Save data to excel}\label{save-data-to-excel}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(openxlsx)}
+
+\NormalTok{iris}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 1            5.1         3.5          1.4         0.2     setosa
+## 2            4.9         3.0          1.4         0.2     setosa
+## 3            4.7         3.2          1.3         0.2     setosa
+## 4            4.6         3.1          1.5         0.2     setosa
+## 5            5.0         3.6          1.4         0.2     setosa
+## 6            5.4         3.9          1.7         0.4     setosa
+## 7            4.6         3.4          1.4         0.3     setosa
+## 8            5.0         3.4          1.5         0.2     setosa
+## 9            4.4         2.9          1.4         0.2     setosa
+## 10           4.9         3.1          1.5         0.1     setosa
+## 11           5.4         3.7          1.5         0.2     setosa
+## 12           4.8         3.4          1.6         0.2     setosa
+## 13           4.8         3.0          1.4         0.1     setosa
+## 14           4.3         3.0          1.1         0.1     setosa
+## 15           5.8         4.0          1.2         0.2     setosa
+## 16           5.7         4.4          1.5         0.4     setosa
+## 17           5.4         3.9          1.3         0.4     setosa
+## 18           5.1         3.5          1.4         0.3     setosa
+## 19           5.7         3.8          1.7         0.3     setosa
+## 20           5.1         3.8          1.5         0.3     setosa
+## 21           5.4         3.4          1.7         0.2     setosa
+## 22           5.1         3.7          1.5         0.4     setosa
+## 23           4.6         3.6          1.0         0.2     setosa
+## 24           5.1         3.3          1.7         0.5     setosa
+## 25           4.8         3.4          1.9         0.2     setosa
+## 26           5.0         3.0          1.6         0.2     setosa
+## 27           5.0         3.4          1.6         0.4     setosa
+## 28           5.2         3.5          1.5         0.2     setosa
+## 29           5.2         3.4          1.4         0.2     setosa
+## 30           4.7         3.2          1.6         0.2     setosa
+## 31           4.8         3.1          1.6         0.2     setosa
+## 32           5.4         3.4          1.5         0.4     setosa
+## 33           5.2         4.1          1.5         0.1     setosa
+## 34           5.5         4.2          1.4         0.2     setosa
+## 35           4.9         3.1          1.5         0.2     setosa
+## 36           5.0         3.2          1.2         0.2     setosa
+## 37           5.5         3.5          1.3         0.2     setosa
+## 38           4.9         3.6          1.4         0.1     setosa
+## 39           4.4         3.0          1.3         0.2     setosa
+## 40           5.1         3.4          1.5         0.2     setosa
+## 41           5.0         3.5          1.3         0.3     setosa
+## 42           4.5         2.3          1.3         0.3     setosa
+## 43           4.4         3.2          1.3         0.2     setosa
+## 44           5.0         3.5          1.6         0.6     setosa
+## 45           5.1         3.8          1.9         0.4     setosa
+## 46           4.8         3.0          1.4         0.3     setosa
+## 47           5.1         3.8          1.6         0.2     setosa
+## 48           4.6         3.2          1.4         0.2     setosa
+## 49           5.3         3.7          1.5         0.2     setosa
+## 50           5.0         3.3          1.4         0.2     setosa
+## 51           7.0         3.2          4.7         1.4 versicolor
+## 52           6.4         3.2          4.5         1.5 versicolor
+## 53           6.9         3.1          4.9         1.5 versicolor
+## 54           5.5         2.3          4.0         1.3 versicolor
+## 55           6.5         2.8          4.6         1.5 versicolor
+## 56           5.7         2.8          4.5         1.3 versicolor
+## 57           6.3         3.3          4.7         1.6 versicolor
+## 58           4.9         2.4          3.3         1.0 versicolor
+## 59           6.6         2.9          4.6         1.3 versicolor
+## 60           5.2         2.7          3.9         1.4 versicolor
+## 61           5.0         2.0          3.5         1.0 versicolor
+## 62           5.9         3.0          4.2         1.5 versicolor
+## 63           6.0         2.2          4.0         1.0 versicolor
+## 64           6.1         2.9          4.7         1.4 versicolor
+## 65           5.6         2.9          3.6         1.3 versicolor
+## 66           6.7         3.1          4.4         1.4 versicolor
+## 67           5.6         3.0          4.5         1.5 versicolor
+## 68           5.8         2.7          4.1         1.0 versicolor
+## 69           6.2         2.2          4.5         1.5 versicolor
+## 70           5.6         2.5          3.9         1.1 versicolor
+## 71           5.9         3.2          4.8         1.8 versicolor
+## 72           6.1         2.8          4.0         1.3 versicolor
+## 73           6.3         2.5          4.9         1.5 versicolor
+## 74           6.1         2.8          4.7         1.2 versicolor
+## 75           6.4         2.9          4.3         1.3 versicolor
+## 76           6.6         3.0          4.4         1.4 versicolor
+## 77           6.8         2.8          4.8         1.4 versicolor
+## 78           6.7         3.0          5.0         1.7 versicolor
+## 79           6.0         2.9          4.5         1.5 versicolor
+## 80           5.7         2.6          3.5         1.0 versicolor
+## 81           5.5         2.4          3.8         1.1 versicolor
+## 82           5.5         2.4          3.7         1.0 versicolor
+## 83           5.8         2.7          3.9         1.2 versicolor
+## 84           6.0         2.7          5.1         1.6 versicolor
+## 85           5.4         3.0          4.5         1.5 versicolor
+## 86           6.0         3.4          4.5         1.6 versicolor
+## 87           6.7         3.1          4.7         1.5 versicolor
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 89           5.6         3.0          4.1         1.3 versicolor
+## 90           5.5         2.5          4.0         1.3 versicolor
+## 91           5.5         2.6          4.4         1.2 versicolor
+## 92           6.1         3.0          4.6         1.4 versicolor
+## 93           5.8         2.6          4.0         1.2 versicolor
+## 94           5.0         2.3          3.3         1.0 versicolor
+## 95           5.6         2.7          4.2         1.3 versicolor
+## 96           5.7         3.0          4.2         1.2 versicolor
+## 97           5.7         2.9          4.2         1.3 versicolor
+## 98           6.2         2.9          4.3         1.3 versicolor
+## 99           5.1         2.5          3.0         1.1 versicolor
+## 100          5.7         2.8          4.1         1.3 versicolor
+## 101          6.3         3.3          6.0         2.5  virginica
+## 102          5.8         2.7          5.1         1.9  virginica
+## 103          7.1         3.0          5.9         2.1  virginica
+## 104          6.3         2.9          5.6         1.8  virginica
+## 105          6.5         3.0          5.8         2.2  virginica
+## 106          7.6         3.0          6.6         2.1  virginica
+## 107          4.9         2.5          4.5         1.7  virginica
+## 108          7.3         2.9          6.3         1.8  virginica
+## 109          6.7         2.5          5.8         1.8  virginica
+## 110          7.2         3.6          6.1         2.5  virginica
+## 111          6.5         3.2          5.1         2.0  virginica
+## 112          6.4         2.7          5.3         1.9  virginica
+## 113          6.8         3.0          5.5         2.1  virginica
+## 114          5.7         2.5          5.0         2.0  virginica
+## 115          5.8         2.8          5.1         2.4  virginica
+## 116          6.4         3.2          5.3         2.3  virginica
+## 117          6.5         3.0          5.5         1.8  virginica
+## 118          7.7         3.8          6.7         2.2  virginica
+## 119          7.7         2.6          6.9         2.3  virginica
+## 120          6.0         2.2          5.0         1.5  virginica
+## 121          6.9         3.2          5.7         2.3  virginica
+## 122          5.6         2.8          4.9         2.0  virginica
+## 123          7.7         2.8          6.7         2.0  virginica
+## 124          6.3         2.7          4.9         1.8  virginica
+## 125          6.7         3.3          5.7         2.1  virginica
+## 126          7.2         3.2          6.0         1.8  virginica
+## 127          6.2         2.8          4.8         1.8  virginica
+## 128          6.1         3.0          4.9         1.8  virginica
+## 129          6.4         2.8          5.6         2.1  virginica
+## 130          7.2         3.0          5.8         1.6  virginica
+## 131          7.4         2.8          6.1         1.9  virginica
+## 132          7.9         3.8          6.4         2.0  virginica
+## 133          6.4         2.8          5.6         2.2  virginica
+## 134          6.3         2.8          5.1         1.5  virginica
+## 135          6.1         2.6          5.6         1.4  virginica
+## 136          7.7         3.0          6.1         2.3  virginica
+## 137          6.3         3.4          5.6         2.4  virginica
+## 138          6.4         3.1          5.5         1.8  virginica
+## 139          6.0         3.0          4.8         1.8  virginica
+## 140          6.9         3.1          5.4         2.1  virginica
+## 141          6.7         3.1          5.6         2.4  virginica
+## 142          6.9         3.1          5.1         2.3  virginica
+## 143          5.8         2.7          5.1         1.9  virginica
+## 144          6.8         3.2          5.9         2.3  virginica
+## 145          6.7         3.3          5.7         2.5  virginica
+## 146          6.7         3.0          5.2         2.3  virginica
+## 147          6.3         2.5          5.0         1.9  virginica
+## 148          6.5         3.0          5.2         2.0  virginica
+## 149          6.2         3.4          5.4         2.3  virginica
+## 150          5.9         3.0          5.1         1.8  virginica
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Guarda el conjunto de datos "iris" en el archivo Excel}
+\FunctionTok{write.xlsx}\NormalTok{(iris, }\AttributeTok{file =} \StringTok{"IRIS.xlsx"}\NormalTok{, }\AttributeTok{sheetName =} \StringTok{"first"}\NormalTok{, }\AttributeTok{rowNames =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Mensaje de confirmación}
+\CommentTok{\#cat("El conjunto de datos iris se ha guardado en", name\_file, "en la hoja", name\_sheet, "\textbackslash{}n")}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

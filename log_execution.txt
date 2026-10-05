@@ -1,0 +1,4 @@
+Proceso P1: procesó 168583 átomos.
+Proceso P2: procesó 168583 átomos.
+Proceso P3: procesó 168583 átomos.
+Proceso P0: procesó 168582 átomos.

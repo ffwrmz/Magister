@@ -1,0 +1,7 @@
+# Archivo de 234 MB: GitHub no acepta archivos de mas de 100 MB
+*.tiff
+
+# Archivos temporales
+__pycache__/
+.ipynb_checkpoints/
+__MACOSX/

@@ -1,0 +1,19 @@
+En [contexto], se observa [fenómeno o dificultad].
+Los antecedentes muestran [qué se sabe] pero todavía falta [brecha].
+Por ello, esta investigación busca [objetivo general], respondiendo la pregunta: [pregunta].
+Su justificación principal es [conveniencia, relevancia, implicación práctica, valor teórico o
+utilidad metodológica].
+La investigación es viable porque [datos, acceso, tiempo y recursos], y requiere cautela ética en
+[posible consecuencia].
+
+
+En el contexto de Chile, la zona norte es conciderada una de las zonas "gap" en CHile, se observa un silencio sismico, es decir que el borde de la placa no ha tenido un terremoto grande en mucho tiempo, mientras que la zonar aledañas sí.
+
+Los antecedentes muestran que grandes terremotos no ocurren en cualquier lado, ocurren en los vacios que dejaron los terremotos anteriores, pero falta garantía, es decir que puede que se siga acumulando energia y esta se libere en 100 años más, o que la energia este estable y se libere energia de forma gradual con sismos.
+
+Para ello, la investigacion busca cuantificar la probabilidad y el potencial energetico acmulado, asi como evaluar los tiempos de alerta temprana, respondiendo a la pregunta ¿que tiempo de alerta maxima podria ofrecer el sistema ElarmS-3, ante un escenario de terremoto, considerando la densidada actual de estaciones y la latencia de comunicaciones?
+
+Su justificacion principal es su revelancia estrategica para chile, ya que la zona norte alberga el 90% de la mineria de cobre del pais, y a mas de 1.4 millones de habitabtes (2020). Comprender su timepo disponible para la evacuacion y la detencion segura de maquinaria en faenas mineras es fundamental para la planificacion de medidas de mitigacion.
+
+La investigacion es viable porque se cuenta con acceso abierto al catalogo sismico de CSN que incliuye mas de 1774 eventos regitrados entre marzo 2020 y octubre 2021, asi como registros de las 93 estaciones sismicas. Ademas se dispone de los codigos y documentacion del algoritmo ElarmS-3. Esta investigacion requiere cautela etica ya que los resultados podrian generar alarma publica si se presentan de manera inadecuada. Dado que la sismologia no permite predecir de manera exacta cuando ni donde puede ocurrir un sismo/terremoto, se debe dejar en claro la incertidumbre propias de los modelos porbabilisticos.
+

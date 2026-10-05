@@ -1,0 +1,46 @@
+# Convert from IPYNB to RMD q1 es el primer 25%, el segundo quintil es siempre al 50%, esos son los que importan los q1,q2,q3
+
+
+para verificar una libreria 
+
+library(xxx)
+
+donde xxx es el nombre, si da error es porque no esta instalada
+
+desde summarizing data types no entra en las evaluaciones pero taria chido verlo uwe
+
+el heatmap tiene que ser autoexplicativo
+
+si tenemos dos variables categoricas, un analicis de frecuencias, 
+
+p-value evalua la certeza, si es menos de 0.05 es creible, 
+
+desde el item 2.1 son datos numericos
+
+promedio recortado
+anit
+promedio ponderado
+medida de dispercin
+    sample varliance
+    sample standard deviation
+
+la estandar nos dice claramente la dif, sin embargo la otra es para alguans formulas y cosas asi, ya que deja la diferencia mas claramente al dejar numeros grandes y los deja en positivo
+
+coeficiente de determinacino, si r es cercano a 0 no hay relacion, si es 1 es positivo y -1 ngativo 
+
+pearson para dos varialbes monotonicas (siempre creciendo linealmente) y si no son monotonicas el spearman's
+
+valor absoluto pearson
+
+como mentir con estadistica
+
+anova var independiente y dependiente, num y cat
+par que sea de dos vias tiene la cat si no, no es de dos vias
+ancova la c es de covarianza (de dos variables numericas)
+manova munltipes variables, tratar de inferir en base a dos variables dependientes
+y la de dos vias es con dos variblaes categoricas con las dos variables depend
+mancova
+// revisar que datos tengo q que calza con lo q puedo hacer
+// revisar material
+// x2
+

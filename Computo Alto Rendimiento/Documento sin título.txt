@@ -1,0 +1,21 @@
+Como se sabe el guardar en memoria (escritura) es lo mas lento, lo ideal es hacerlo lo menos posible, 200mb por proceso taria bem -> memoria buffer, para que no se pelien por el uso del disco.
+
+Lo ideal es hacer llamas al disco pocas veces por tarea.
+
+cache l1 mas rapida > cache l2 > cache l3 (ultimo nivel de procesador), mayor latencia
+dsp
+ram 
+y muuucho dsp disco
+
+peer to peer messaging es complejidad n!, puede ocurrir deadlock, en ambos se puede quedar en deadlock sin emabrgo es mas ficil que pase en el centralized que en peer to peer
+
+reciver, sender = mp.Pipe(duplex=x)
+
+x= si es False, se crea un canal unidireccionas
+True se crea bidireccional
+
+pipe.send() manda algo, pipe.recv() recive la informacion, esto bloquea el proceso pipe.poll() revisa existencia de mensajes en el canal, no abusar del poll
+
+para la tarea utilizar el cuadrado del rc.
+
+32 elemntos en la lista para tener 31 vesinos, el primer elemento es el identificador.

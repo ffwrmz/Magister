@@ -1,0 +1,235 @@
+---
+title: "Import_data_R.ipynb"
+output:
+  html_document: default
+  pdf_document: default
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# 1. Working directories
+
+The working directory is the default location where R will look for
+files you want to load and where it will put any files you save.
+
+You can also use the `getwd()` function in the Console which returns the
+file path of the current working directory.
+
+```{r}
+getwd()
+
+
+```
+
+If you wanna set a directory
+
+```{r}
+setwd('/home/fer/Escritorio/U/Magister/Topicos Avanzados en Ciencias de Datos/Clase_Import_Data/Clase_Import_Data')
+```
+
+```{r}
+getwd()
+```
+
+If you wanna list the files located into the directory
+
+```{r}
+list.files()
+```
+
+# 2. Importing data in R
+
+Loading data into R can be quite frustrating. Almost every single type
+of file that you want to get into R seems to require its function, and
+even then, you might get lost in the functions' arguments. In short, it
+can be fairly easy to mix up things from time to time, whether you are a
+beginner or a more advanced R user.
+
+## 2.1. Importing data to R from a CSV files
+
+### 2.1.1 readr() function
+
+In this section, we will read data in r by loading a CSV file from Hotel
+Booking Demand. This dataset consists of booking data from a city hotel
+and a resort hotel. To import the CSV file, we will use the readr
+package's `read_csv` function.
+
+readr supports the following file formats with these read\_\*()
+functions:
+
+read_csv(): comma-separated values (CSV)
+
+read_tsv(): tab-separated values (TSV)
+
+read_csv2(): semicolon-separated values with , as the decimal mark
+
+read_delim(): delimited files (CSV and TSV are important special cases)
+
+read_fwf(): fixed-width files
+
+read_table(): whitespace-separated files
+
+read_log(): web log files
+
+```{r}
+#library(readr)
+# no es necesario hacerlo varias veces, en una sesion una pura vez basta
+data1 <- read_csv('hotel_bookings_clean.csv', show_col_types = FALSE)
+
+head(data1)
+```
+
+```{r}
+?read_csv()
+```
+
+`read_csv()` and `read_tsv()` are special cases of the more general
+`read_delim()`. They're useful for reading the most common types of flat
+file data, comma separated values and tab separated values,
+respectively. `read_csv2()` uses ⁠;⁠ for the field separator and ⁠,⁠ for the
+decimal point.
+
+```{r}
+library(readr)
+
+data_tab <- read_delim('hotel_bookings_clean.csv', delim = ',', show_col_types = FALSE)
+
+data_tab
+```
+
+### 2.1.2. read.table() function
+
+Similar to `read_csv` you can also use the `read.table` function to load
+the file. Make sure you are adding delimiter "," and header = 1. It will
+set the first row as column names instead of "V1", "V2",...
+
+```{r}
+data2 <- read.table('hotel_bookings_clean.csv', sep=",", header = 1)
+
+
+head(data2, 5)
+```
+
+### 2.1.3. Comparing the timing of these functions
+
+```{r}
+timing_result <- system.time({
+    data1 <- read_csv('hotel_bookings_clean.csv', show_col_types = FALSE)
+})
+
+# Print the result and timing information
+print(timing_result)
+```
+
+```{r}
+timing_result <- system.time({
+    data_tab <- read_delim('hotel_bookings_clean.csv', delim = ',', show_col_types = FALSE)
+})
+
+# Print the result and timing information
+print(timing_result)
+```
+
+```{r}
+timing_result <- system.time({
+    data2 <- read.table('hotel_bookings_clean.csv', sep=",", header = 1)
+})
+
+# Print the result and timing information
+print(timing_result)
+```
+
+## 2.2. Importing a TXT file in R
+
+In this part, we will use the Canserbero Lyrics dataset to load a text
+file. The file consists of Lyrics from the rapper Canserbero. We can use
+the `readLines` function to load the simple file, but we have to perform
+additional tasks to convert it into a dataframe.
+
+We will use read.table's alternative function, `read.delim` to load the
+text file as an R dataframe. Other read.table's alternative functions
+are read.csv, read.csv2, and read.delim2.
+
+```{r}
+data3 <- read.delim('Canserbero_lyrics.txt', header = F)
+head(data3, 5)
+```
+
+## 2.3. Importing data from Excel into R
+
+We will use the readxl package's `read_excel` function to read a single
+sheet from an Excel file. The package comes with tiddyvers, but it is
+not the core part of it, so we need to load the package before using the
+function.
+
+The function requires the location of the data and sheet number. We can
+also modify how our dataframe looks by reading the description of other
+parameters in read_excel documentation.
+
+```{r}
+library(readxl)
+data4 <- read_excel("hotel_bookings_clean.xlsx", sheet = "Sheet1", col_names = TRUE)
+
+head(data4, 5)
+```
+
+```{r}
+?read_excel()
+```
+
+## 2.4. Importing some columns from excel
+
+```{r}
+library(readxl)
+data4 <- read_excel("hotel_bookings_clean.xlsx", sheet = "Sheet1", col_names = TRUE, range = cell_cols("A:D"))
+
+head(data4, 5)
+
+```
+
+```{r}
+library(openxlsx)
+
+data4 <- read.xlsx("hotel_bookings_clean.xlsx", cols = 10:20)
+
+head(data4)
+```
+
+```{r}
+library(readxl)
+data4 <- read_excel("hotel_bookings_clean.xlsx", sheet = "Sheet1", col_names = TRUE)[1:7]
+
+
+head(data4)
+```
+
+## 2.5. Importing some rows from excel
+
+```{r}
+library(readxl)
+
+data4 <- read_excel("hotel_bookings_clean.xlsx", sheet = "Sheet1", col_names = TRUE)
+
+dim(data4)
+
+data_slice <- data4[1:40, ]
+
+dim(data_slice)
+head(data_slice)
+```
+
+# 2.4 Save data to excel
+
+```{r}
+library(openxlsx)
+
+i <- iris
+
+# Guarda el conjunto de datos "iris" en el archivo Excel
+write.xlsx(iris, file = "IRIk.hgtgyhdS.xlsx", sheetName = "first", rowNames = FALSE)
+
+# Mensaje de confirmación
+#cat("El conjunto de datos iris se ha guardado en", name_file, "en la hoja", name_sheet, "\n")
+
+```
